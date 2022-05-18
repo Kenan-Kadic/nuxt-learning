@@ -1,10 +1,10 @@
 <template>
   <v-app dark>
+
     <v-app-bar app color="primary" dark>
       <v-toolbar-title>Vuetify Dashboard</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn text rounded to="/">Home</v-btn>
-      <v-btn text rounded to="/login">Login</v-btn>
+      <v-btn v-for="(link, index) in links" :key="link.label" text rounded :to="link.url">{{link.label}}</v-btn>
     </v-app-bar>
 
     <v-main>
@@ -20,14 +20,15 @@
         no-gutters
       >
         <v-btn
-          v-for="link in links"
-          :key="link"
+          v-for="(link, index) in links"
+          :key="index"
           color="white"
           text
           rounded
           class="my-2"
+          :to="link.url"
         >
-          {{ link }}
+          {{ link.label }}
         </v-btn>
         <v-col
           class="primary lighten-2 py-4 text-center white--text"
@@ -47,7 +48,8 @@ export default {
     return {
       links: [
         {label: 'Home', url:'/'},
-        {label: 'Login', url:'login'}
+        {label: 'Login', url:'/login'},
+        {label: 'Dashboard', url: '/dashboard'}
       ],
     }
   }
