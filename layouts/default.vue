@@ -5,6 +5,7 @@
       <v-toolbar-title>Vuetify Dashboard</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn v-for="(link, index) in links" :key="link.label" text rounded :to="link.url">{{link.label}}</v-btn>
+      <v-btn @click="toggleTheme" text rounded>Toggle Theme</v-btn>
     </v-app-bar>
 
     <v-main>
@@ -30,6 +31,7 @@
         >
           {{ link.label }}
         </v-btn>
+
         <v-col
           class="primary lighten-2 py-4 text-center white--text"
           cols="12"
@@ -53,6 +55,11 @@ export default {
         {label: 'Signup', url: 'signup'}
       ],
     }
+  },
+  methods: {
+    toggleTheme() {
+      this.$vuetify.theme.dark = !this.$vuetify.theme.dark
+    },
   }
 }
 </script>
