@@ -1,19 +1,30 @@
 <template>
-  <div>
+  <v-container>
     <h1>Dashboard</h1>
 
-    <SalesGraph v-for="sale in sales" :key="`${sale.title}`" :sale="sale" />
+    <v-row>
+      <v-col v-for="sale in sales" :key="`${sale.title}`">
+    <SalesGraph :sale="sale" />
+      </v-col>
+    </v-row>
 
+     <v-row>
+       <v-col v-for="statistic in statistics"
+      :key="`${statistic.title}`">
     <StatisticCard
-      v-for="statistic in statistics"
-      :key="`${statistic.title}`"
       :statistic="statistic"
     />
+       </v-col>
+     </v-row>
 
+    <v-row>
+      <v-col md="8">
     <EmployeesTable :employees="employees" @select-employee="setEmployee" />
-
+      </v-col>
+      <v-col md="4">
     <EventTimeline :timeline="timeline" />
-
+      </v-col>
+    </v-row>
     <v-snackbar v-model="snackbar">
       You have selected {{ selectedEmployee.name }},
       {{ selectedEmployee.title }}
@@ -21,7 +32,7 @@
         Close
       </v-btn>
     </v-snackbar>
-  </div>
+  </v-container>
 </template>
 
 <script>
@@ -33,6 +44,7 @@ import employeesData from '../data/employees.json'
 import timelineData from '../data/timeline.json'
 import salesData from '../data/sales.json'
 import statisticsData from '../data/statistics.json'
+
 export default {
   name: 'DashboardPage',
   components: {
