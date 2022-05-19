@@ -52,7 +52,8 @@ export default {
         {label: 'Home', url:'/'},
         {label: 'Login', url:'/login'},
         {label: 'Dashboard', url: '/dashboard'},
-        {label: 'Signup', url: 'signup'}
+        {label: 'Signup', url: '/signup'},
+        {label: 'API', url: '/api'}
       ],
     }
   },
