@@ -53,7 +53,8 @@ export default {
         {label: 'Login', url:'/login'},
         {label: 'Dashboard', url: '/dashboard'},
         {label: 'Signup', url: '/signup'},
-        {label: 'API', url: '/api'}
+        {label: 'API', url: '/api'},
+        {label: 'Prop', url: '/propparent'}
       ],
     }
   },

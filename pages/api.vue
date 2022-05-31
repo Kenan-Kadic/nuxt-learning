@@ -1,6 +1,7 @@
 <template>
   <v-container>
     <v-btn @click="fetchSomething">Fetch Something</v-btn>
+    <v-spacer></v-spacer>
     <h1>{{ ip }}</h1>
     <v-card>
       <v-card-text>
@@ -29,7 +30,7 @@
 
     <v-dialog v-model="errorDialog" max-width="500">
       <v-card>
-        <v-card-title class="warning d-flex justify-center display-1">Error!</v-card-title>
+        <v-card-title class="red d-flex justify-center display-1">Error!</v-card-title>
         <v-divider></v-divider>
         <v-card-text class="mt-5">
           <v-row>
@@ -54,6 +55,8 @@ export default {
 
   data(){
   return {
+      message:'You just received a message',
+
       thinking: false,
       ip: [],
       userId: '',
@@ -69,6 +72,7 @@ export default {
 },
 
   methods: {
+
     fetchSomething() {
       this.thinking = true
       console.log('function has run')
