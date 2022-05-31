@@ -54,7 +54,7 @@ export default {
         {label: 'Dashboard', url: '/dashboard'},
         {label: 'Signup', url: '/signup'},
         {label: 'API', url: '/api'},
-        {label: 'Prop', url: '/propparent'}
+        {label: 'Store', url: '/store'}
       ],
     }
   },

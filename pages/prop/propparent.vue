@@ -6,7 +6,7 @@
 
 <script>
 
-import PropPass from "~/components/PropPass";
+import PropPass from "~/components/prop/PropPass";
 
 export default {
   name: "propparent",
