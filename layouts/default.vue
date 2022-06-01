@@ -51,10 +51,11 @@ export default {
       links: [
         {label: 'Home', url:'/'},
         {label: 'Login', url:'/login'},
-        {label: 'Dashboard', url: '/dashboard'},
-        {label: 'Signup', url: '/signup'},
-        {label: 'API', url: '/api'},
-        {label: 'Store', url: '/store'}
+        // {label: 'Dashboard', url: '/dashboard'},
+        // {label: 'Signup', url: '/signup'},
+        {label: 'API Fetch', url: '/api'},
+        {label: 'Store Mutation', url: '/store'},
+        {label: 'Emit Event', url: '/emit'}
       ],
     }
   },
