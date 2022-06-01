@@ -1,7 +1,7 @@
 <template>
   <v-container>
+     <h1 class="mb-5">{{ username }}</h1>
     <v-btn color="green" @click='changeUsername'>Change Username</v-btn>
-    <h1>{{ username }}</h1>
   </v-container>
 </template>
 
