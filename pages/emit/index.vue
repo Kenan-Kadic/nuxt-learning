@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <AccountInfo :username="user.username" @changeUsername="user.username = 'Kenan'"></AccountInfo>
+    <AccountInfo :username="user.username"></AccountInfo>
   </v-container>
 </template>
 
@@ -19,6 +19,15 @@ export default {
     }
   },
 
+  created() {
+    this.$nuxt.$on('change-username', () => {
+      this.user.username = 'Kenan'
+    })
+  },
+
+  beforeDestroy(){
+    this.$nuxt.$off('change-username')
+  }
 }
 </script>
 

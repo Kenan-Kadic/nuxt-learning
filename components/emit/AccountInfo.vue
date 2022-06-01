@@ -15,7 +15,7 @@ export default {
 
   methods: {
     changeUsername() {
-    this.$emit('changeUsername');
+    this.$nuxt.$emit('change-username');
     }
   }
 
