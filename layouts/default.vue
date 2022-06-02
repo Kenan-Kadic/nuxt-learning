@@ -14,9 +14,9 @@
      <v-card-actions
         v-for="(child, index) in item.items"
         :key="child.title"
-        class="py-1 px-0"
+        class="pa-0"
       >
-        <v-btn block text class="fontcolor font-weight-medium px-3" :to="child.to">
+        <v-btn block text class="green font-weight-medium px-3" :to="child.to">
           {{ child.title }}
         </v-btn>
       </v-card-actions>
