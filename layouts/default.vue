@@ -16,7 +16,7 @@
             :key="child.title"
             class="pa-0"
           >
-            <v-btn block text class="green font-weight-medium px-3" :to="child.to">
+            <v-btn tile outlined block text class="green font-weight-medium px-3" :to="child.to">
               {{ child.title }}
             </v-btn>
           </v-card-actions>
@@ -69,7 +69,8 @@ export default {
         },
         {
           items: [
-            {title: 'Vuex Mutation', to:'/store/mutation' },
+            {title: 'Vuex Mutation', to:'/store/mutation'},
+            {title: 'Save Api Data', to:'/store/apidata'},
           ],
           title: 'Store',
         },
