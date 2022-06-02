@@ -1,7 +1,7 @@
 <template>
   <v-container>
-     <h1 class="mb-5">{{ username }}</h1>
-    <v-btn color="green" @click='changeUsername'>Change Username</v-btn>
+    <h2>This button makes the dialog visible</h2>
+    <v-btn color="green" @click='revealDialog'>Make Dialog visible</v-btn>
   </v-container>
 </template>
 
@@ -14,8 +14,8 @@ export default {
   },
 
   methods: {
-    changeUsername() {
-    this.$nuxt.$emit('change-username');
+    revealDialog() {
+    this.$nuxt.$emit('reveal-dialog');
     }
   }
 

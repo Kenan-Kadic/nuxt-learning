@@ -1,6 +1,11 @@
 <template>
   <v-container>
-    <AccountInfo :username="user.username"></AccountInfo>
+    <AccountInfo></AccountInfo>
+    <v-dialog v-model="dialog">
+      <v-card min-height="500" color="blue">
+        <v-card-title>Kenan's Dialog is now visible</v-card-title>
+      </v-card>
+    </v-dialog>
   </v-container>
 </template>
 
@@ -13,24 +18,18 @@ export default {
 
   data() {
     return {
-      user: {
-        username: 'Matt'
-      }
+      dialog: false
     }
   },
 
   created() {
-    this.$nuxt.$on('change-username', () => {
-      if (this.user.username === 'Matt') {
-        this.user.username = 'Kenan';
-      } else {
-        this.user.username = 'Matt';
-      }
+    this.$nuxt.$on('reveal-dialog', () => {
+      this.dialog = true;
     })
   },
 
   beforeDestroy(){
-    this.$nuxt.$off('change-username')
+    this.$nuxt.$off('reveal-dialog')
   }
 }
 </script>
