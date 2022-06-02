@@ -1,6 +1,6 @@
 <template>
   <v-container>
-     <h1 class="mb-5">{{ username }}</h1>
+     <h1 class="mb-5">{{ user.username }}</h1>
     <v-btn color="green" @click='changeUsername'>Change Username</v-btn>
   </v-container>
 </template>
@@ -9,8 +9,12 @@
 export default {
   name: "AccountInfo",
 
-  props: {
-    username: String
+  data() {
+    return {
+      user: {
+        username: 'Matt'
+      }
+    }
   },
 
   methods: {
