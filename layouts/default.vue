@@ -5,22 +5,22 @@
       <v-toolbar-title>Vuetify Dashboard</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-menu v-for="(item, index) in items" :key="index" offset-y open-on-hover>
-           <template v-slot:activator="{ on, attrs }">
-                        <v-btn class="text--white font-weight-bold" text tile dark v-bind="attrs" v-on="on">{{item.title}}
-                          <v-icon class="mb-1">mdi-menu-down</v-icon>
-                        </v-btn>
-              </template>
-      <v-card flat>
-     <v-card-actions
-        v-for="(child, index) in item.items"
-        :key="child.title"
-        class="pa-0"
-      >
-        <v-btn block text class="green font-weight-medium px-3" :to="child.to">
-          {{ child.title }}
-        </v-btn>
-      </v-card-actions>
-      </v-card>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn class="text--white font-weight-bold" text tile dark v-bind="attrs" v-on="on">{{item.title}}
+            <v-icon class="mb-1">mdi-menu-down</v-icon>
+          </v-btn>
+        </template>
+        <v-card flat>
+          <v-card-actions
+            v-for="(child, index) in item.items"
+            :key="child.title"
+            class="pa-0"
+          >
+            <v-btn block text class="green font-weight-medium px-3" :to="child.to">
+              {{ child.title }}
+            </v-btn>
+          </v-card-actions>
+        </v-card>
       </v-menu>
       <v-btn @click="toggleTheme" text>Toggle Theme</v-btn>
     </v-app-bar>
@@ -66,6 +66,12 @@ export default {
             {title: 'Pass a prop', to:'/prop/propparent' },
           ],
           title: 'Props',
+        },
+        {
+          items: [
+            {title: 'Vuex Mutation', to:'/store/mutation' },
+          ],
+          title: 'Store',
         },
       ],
 
