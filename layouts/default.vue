@@ -22,7 +22,7 @@
       </v-card-actions>
       </v-card>
       </v-menu>
-      <v-btn @click="toggleTheme" text rounded>Toggle Theme</v-btn>
+      <v-btn @click="toggleTheme" text>Toggle Theme</v-btn>
     </v-app-bar>
 
     <v-main>
@@ -60,6 +60,12 @@ export default {
             {title: 'Emit an event', to:'/emit' },
           ],
           title: 'Emit',
+        },
+        {
+          items: [
+            {title: 'Pass a prop', to:'/prop/propparent' },
+          ],
+          title: 'Props',
         },
       ],
 

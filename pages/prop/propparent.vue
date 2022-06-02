@@ -15,7 +15,7 @@ export default {
 
   data() {
     return {
-      headerText: 'This is the passed text which is located in the Parent but displays in the child component',
+      headerText: 'This is the passed text which is located in the Parent component (a page in pages folder in a subfolder called prop) but displays in the child component (a component in components folder in a subfolder called prop)',
     }
     }
 }
