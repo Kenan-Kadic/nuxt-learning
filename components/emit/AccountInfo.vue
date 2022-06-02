@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <h2>This button makes the dialog visible</h2>
+    <h2>This button (in child component) makes the existing dialog (currently hidden in parent component) visible</h2>
     <v-btn color="green" @click='revealDialog'>Make Dialog visible</v-btn>
   </v-container>
 </template>
