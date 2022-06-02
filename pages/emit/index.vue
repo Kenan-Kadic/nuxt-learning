@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <AccountInfo></AccountInfo>
+    <AccountInfo :username="user.username"></AccountInfo>
   </v-container>
 </template>
 
@@ -11,9 +11,21 @@ export default {
   name: "index",
   components: {AccountInfo},
 
+  data() {
+    return {
+      user: {
+        username: 'Matt'
+      }
+    }
+  },
+
   created() {
     this.$nuxt.$on('change-username', () => {
-      this.user.username = 'Kenan';
+      if (this.user.username === 'Matt') {
+        this.user.username = 'Kenan';
+      } else {
+        this.user.username = 'Matt';
+      }
     })
   },
 
