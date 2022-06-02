@@ -30,7 +30,7 @@ export default {
           if (resp.status === 200) {
             this.users = resp.data;
             console.log(this.users)
-            this.$store.commit("store/CHANGE_DATA", this.users);
+            this.$store.commit("fetch/CHANGE_DATA", this.users);
           }
         })
         .catch(err => {
@@ -41,7 +41,7 @@ export default {
 
   computed: {
     usersFromStore() {
-      return this.$store.state.store.data
+      return this.$store.state.fetch.data
     },
   },
 }

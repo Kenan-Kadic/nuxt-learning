@@ -51,7 +51,7 @@
 
 <script>
 export default {
-  name: "api",
+  name: "fetch",
 
   data(){
   return {

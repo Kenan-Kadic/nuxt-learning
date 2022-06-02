@@ -69,6 +69,12 @@ export default {
         },
         {
           items: [
+            {title: 'Fetch', to:'/api/fetch'},
+          ],
+          title: 'API',
+        },
+        {
+          items: [
             {title: 'Vuex Mutation', to:'/store/mutation'},
             {title: 'Save Api Data', to:'/store/apidata'},
           ],
@@ -81,7 +87,7 @@ export default {
       //   {label: 'Login', url:'/login'},
       //   // {label: 'Dashboard', url: '/dashboard'},
       //   // {label: 'Signup', url: '/signup'},
-      //   {label: 'API Fetch', url: '/api'},
+      //   {label: 'api Fetch', url: '/api'},
       //   {label: 'Store Mutation', url: '/store'},
       //   {label: 'Emit Event', url: '/emit'}
       // ],
