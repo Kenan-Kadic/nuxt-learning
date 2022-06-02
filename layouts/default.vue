@@ -4,7 +4,24 @@
     <v-app-bar app color="primary" dark>
       <v-toolbar-title>Vuetify Dashboard</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn v-for="(link, index) in links" :key="link.label" text rounded :to="link.url">{{link.label}}</v-btn>
+      <v-menu v-for="(item, index) in items" :key="index" offset-y open-on-hover>
+           <template v-slot:activator="{ on, attrs }">
+                        <v-btn class="text--white font-weight-bold" text tile dark v-bind="attrs" v-on="on">{{item.title}}
+                          <v-icon class="mb-1">mdi-menu-down</v-icon>
+                        </v-btn>
+              </template>
+      <v-card flat>
+     <v-card-actions
+        v-for="(child, index) in item.items"
+        :key="child.title"
+        class="py-1 px-0"
+      >
+        <v-btn block text class="fontcolor font-weight-medium px-3" :to="child.to">
+          {{ child.title }}
+        </v-btn>
+      </v-card-actions>
+      </v-card>
+      </v-menu>
       <v-btn @click="toggleTheme" text rounded>Toggle Theme</v-btn>
     </v-app-bar>
 
@@ -20,18 +37,6 @@
         justify="center"
         no-gutters
       >
-        <v-btn
-          v-for="(link, index) in links"
-          :key="index"
-          color="white"
-          text
-          rounded
-          class="my-2"
-          :to="link.url"
-        >
-          {{ link.label }}
-        </v-btn>
-
         <v-col
           class="primary lighten-2 py-4 text-center white--text"
           cols="12"
@@ -48,15 +53,25 @@ export default {
   name: 'DefaultLayout',
   data () {
     return {
-      links: [
-        {label: 'Home', url:'/'},
-        {label: 'Login', url:'/login'},
-        // {label: 'Dashboard', url: '/dashboard'},
-        // {label: 'Signup', url: '/signup'},
-        {label: 'API Fetch', url: '/api'},
-        {label: 'Store Mutation', url: '/store'},
-        {label: 'Emit Event', url: '/emit'}
+
+      items: [
+        {
+          items: [
+            {title: 'Emit an event', to:'/emit' },
+          ],
+          title: 'Emit',
+        },
       ],
+
+      // links: [
+      //   {label: 'Home', url:'/'},
+      //   {label: 'Login', url:'/login'},
+      //   // {label: 'Dashboard', url: '/dashboard'},
+      //   // {label: 'Signup', url: '/signup'},
+      //   {label: 'API Fetch', url: '/api'},
+      //   {label: 'Store Mutation', url: '/store'},
+      //   {label: 'Emit Event', url: '/emit'}
+      // ],
     }
   },
   methods: {
