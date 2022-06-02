@@ -8,8 +8,17 @@
         <p>Userid: {{ip.userId}}</p>
         <p>Id: {{ip.id}}</p>
         <p>Title: {{ip.title}}</p>
-        <p>Completed: {{ip.completed}}</p>
+        <p class="mb-15">Completed: {{ip.completed}}</p>
+        <h1>Pull Data from Other API Fetch that is in Vuex store</h1>
+
+        <div v-for="(user, index) in usersFromStore" :key="index">
+          <p>{{ user.id }}</p>
+          <p>{{ user.address.city }}</p>
+          <p>{{ user.website }}</p>
+        </div>
+
       </v-card-text>
+
     </v-card>
         <v-dialog v-model="successDialog" max-width="500">
       <v-card>
@@ -67,6 +76,7 @@ export default {
       errorDialog: false,
       successTimer: 5,
       errorTimer: 5,
+      users: []
 
   }
 },
@@ -105,6 +115,12 @@ export default {
       setInterval(() => {
         this.errorTimer -= 1
       }, 1000)
+    },
+  },
+
+  computed: {
+    usersFromStore() {
+      return this.$store.state.fetch.data
     },
   },
 
