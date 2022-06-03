@@ -2,6 +2,17 @@ export const state = () =>({
   count: 0,
 })
 
+export const actions = {
+  increment(context) {
+    setTimeout(function () {
+      context.commit('increment');
+    }, 2000);
+  },
+  increase(context, payload) {
+    context.commit('increase', payload);
+  }
+}
+
 export const mutations = {
   increment(state) {
     state.count = state.count + 1;
@@ -36,4 +47,6 @@ export const getters = {
     return finalCounter;
   },
 }
+
+
 

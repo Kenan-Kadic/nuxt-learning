@@ -24,13 +24,31 @@ export default {
   },
 
   methods: {
+
+    // you usually don't commit mutations directly you dispatch an actions which
+    // does this for you in the store
+
+    // addOne() {
+    //   this.$store.commit('counter/increment')
+    // },
+
     addOne() {
-      this.$store.commit('counter/increment')
+      this.$store.dispatch('counter/increment')
     },
 
     addTen(){
-     this.$store.commit('counter/increase', { value:10 })
+    this.$store.dispatch({
+      type: 'counter/increase',
+      value: 10
+    });
     },
+
+    // usually you would not commit a mutation directly you would trigger
+    // an action which will commit a mutation
+
+    // addTen(){
+    //  this.$store.commit('counter/increase', { value:10 })
+    // },
 
     resetValue(){
       this.$store.commit("counter/reset")
