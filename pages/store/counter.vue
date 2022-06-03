@@ -1,14 +1,18 @@
 <template>
   <v-container>
+    <v-row v-if="isAuth">
+      <v-col>
     <h1 class="py-3">Counter: {{ theCount }}</h1>
     <h1 class="pb-3">Getter of Counter x 2: {{ countTimesTwo }} </h1>
     <v-btn @click="inc">Increase by 1</v-btn>
     <v-btn @click="ten({value: 10})">Increase by 10</v-btn>
     <v-btn @click="res">Reset value</v-btn>
+      </v-col>
+    </v-row>
 
     <v-row class="mt-15">
       <v-col cols="12">
-        <v-card color="green">
+        <v-card color="green" max-width="300">
           <v-card-title>Authorization</v-card-title>
           <v-card-actions class="my-5">
           <v-btn @click="login" v-if="!isAuth">Login</v-btn>
