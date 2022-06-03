@@ -1,5 +1,6 @@
 export const state = () =>({
   count: 0,
+  isLoggedIn: false
 })
 
 export const actions = {
@@ -11,10 +12,18 @@ export const actions = {
   increaseByTen(context, payload) {
     context.commit('increaseByTen', payload);
   },
-
   reset(context) {
     context.commit('reset');
-  }
+  },
+
+  login(context) {
+    context.commit('setAuth', { isAuth: true });
+  },
+
+  logout(context) {
+    context.commit('setAuth', { isAuth: false });
+  },
+
 }
 
 export const mutations = {
@@ -25,13 +34,20 @@ export const mutations = {
   increaseByTen(state, payload) {
     state.count = state.count + payload.value;
   },
-
   reset(state) {
     state.count = 0;
   },
+
+  setAuth(state, payload) {
+    state.isLoggedIn = payload.isAuth;
+  }
 }
 
 export const getters = {
+
+  userIsAuthenticated(state) {
+    return state.isLoggedIn;
+  },
 
   finalCounter(state) {
     return state.count * 2;

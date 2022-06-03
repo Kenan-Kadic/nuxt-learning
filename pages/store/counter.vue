@@ -5,6 +5,18 @@
     <v-btn @click="inc">Increase by 1</v-btn>
     <v-btn @click="ten({value: 10})">Increase by 10</v-btn>
     <v-btn @click="res">Reset value</v-btn>
+
+    <v-row class="mt-15">
+      <v-col cols="12">
+        <v-card color="green">
+          <v-card-title>Authorization</v-card-title>
+          <v-card-actions class="my-5">
+          <v-btn @click="login" v-if="!isAuth">Login</v-btn>
+          <v-btn @click="logout" v-if="isAuth">Logout</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
@@ -27,7 +39,8 @@
     //shortcut for the getter above
 
     ...mapGetters({
-     countTimesTwo : 'counter/counterTimesTwo'
+     countTimesTwo : 'counter/counterTimesTwo',
+     isAuth : 'counter/userIsAuthenticated'
     })
 
   },
@@ -39,7 +52,10 @@
     ...mapActions({
       inc: 'counter/incrementByOne',
       ten: 'counter/increaseByTen',
-      res: 'counter/reset'
+      res: 'counter/reset',
+
+      login: 'counter/login',
+      logout: 'counter/logout',
     }),
 
   }
