@@ -77,6 +77,7 @@ export default {
           items: [
             {title: 'Vuex Mutation', to:'/store/mutation'},
             {title: 'Save Api Data', to:'/store/apidata'},
+            {title: 'Counter', to: '/store/counter'}
           ],
           title: 'Store',
         },
