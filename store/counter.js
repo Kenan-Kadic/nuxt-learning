@@ -3,13 +3,13 @@ export const state = () =>({
 })
 
 export const actions = {
-  increment(context) {
+  incrementByOne(context) {
     setTimeout(function () {
-      context.commit('increment');
+      context.commit('incrementByOne');
     }, 2000);
   },
-  increase(context, payload) {
-    context.commit('increase', payload);
+  increaseByTen(context, payload) {
+    context.commit('increaseByTen', payload);
   },
 
   reset(context) {
@@ -18,11 +18,11 @@ export const actions = {
 }
 
 export const mutations = {
-  increment(state) {
+  incrementByOne(state) {
     state.count = state.count + 1;
   },
 
-  increase(state, payload) {
+  increaseByTen(state, payload) {
     state.count = state.count + payload.value;
   },
 
@@ -39,9 +39,9 @@ export const getters = {
 
   // GETTERS CAN DEPEND ON OTHER GETTERS
 
-  normilizedCounter(state, getters){
+  counterTimesTwo(state, getters){
     const finalCounter = getters.finalCounter;
-    // const finalCounter = state.counter * 2;
+    // instead of writing const finalCounter = state.counter * 2;
     if (finalCounter < 0) {
       return 0;
     }
