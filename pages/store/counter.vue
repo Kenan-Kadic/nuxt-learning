@@ -36,13 +36,6 @@ export default {
       this.$store.dispatch('counter/increment')
     },
 
-    addTen(){
-    this.$store.dispatch({
-      type: 'counter/increase',
-      value: 10
-    });
-    },
-
     // usually you would not commit a mutation directly you would trigger
     // an action which will commit a mutation
 
@@ -50,9 +43,24 @@ export default {
     //  this.$store.commit('counter/increase', { value:10 })
     // },
 
+    addTen(){
+    this.$store.dispatch({
+      type: 'counter/increase',
+      value: 10
+    });
+    },
+
+  //Do not commit mutations directly inside of pages or components
+    // dispatch an action which will commit a mutation through context
+
+    // resetValue(){
+    //   this.$store.commit("counter/reset")
+    // }
+
     resetValue(){
-      this.$store.commit("counter/reset")
+      this.$store.dispatch('counter/reset');
     }
+
   }
 }
 

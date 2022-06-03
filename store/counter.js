@@ -10,6 +10,10 @@ export const actions = {
   },
   increase(context, payload) {
     context.commit('increase', payload);
+  },
+
+  reset(context) {
+    context.commit('reset');
   }
 }
 
