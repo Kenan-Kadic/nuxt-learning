@@ -84,13 +84,12 @@ export default {
   methods: {
 
     fetchSomething() {
-      this.thinking = true
-      console.log('function has run')
-      this.$axios.get('https://jsonplaceholder.typicode.com/todos/1')
+      this.$store.dispatch('fetch/fetchAPI')
         .then(resp => {
           if (resp.status === 200) {
             this.thinking = false;
             this.ip = resp.data;
+            console.log(this.ip)
             this.handleSuccess();
           }
         })
@@ -100,6 +99,24 @@ export default {
           this.handleError();
         })
     },
+
+    // fetchSomething() {
+    //   this.thinking = true
+    //   console.log('function has run')
+    //   this.$axios.get('https://jsonplaceholder.typicode.com/todos/1')
+    //     .then(resp => {
+    //       if (resp.status === 200) {
+    //         this.thinking = false;
+    //         this.ip = resp.data;
+    //         this.handleSuccess();
+    //       }
+    //     })
+    //     .catch(err => {
+    //       console.error(err);
+    //       this.thinking = false;
+    //       this.handleError();
+    //     })
+    // },
 
     handleSuccess() {
       this.successDialog = true;

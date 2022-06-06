@@ -37,6 +37,14 @@ export default {
           console.error(err);
         })
     },
+    manualPromise() {
+      return new Promise((resolve, reject) => {
+        // good thing happened
+        resolve('Success!');
+        // bad thing happened
+        reject('Error!')
+      })
+    }
   },
 
   computed: {
