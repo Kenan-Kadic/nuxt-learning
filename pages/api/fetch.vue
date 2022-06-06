@@ -90,50 +90,30 @@ export default {
             this.thinking = false;
             this.ip = resp.data;
             console.log(this.ip)
-            this.handleSuccess();
+
+            this.successDialog = true;
+            this.successTimer = 5;
+            setInterval(() => {
+            this.successTimer -= 1
+            }, 1000)
           }
         })
         .catch(err => {
           console.error(err);
           this.thinking = false;
-          this.handleError();
+
+          this.errorDialog = true;
+          this.errorTimer = 5;
+          setInterval(() => {
+          this.errorTimer -= 1
+          }, 1000)
         })
     },
 
-    // fetchSomething() {
-    //   this.thinking = true
-    //   console.log('function has run')
-    //   this.$axios.get('https://jsonplaceholder.typicode.com/todos/1')
-    //     .then(resp => {
-    //       if (resp.status === 200) {
-    //         this.thinking = false;
-    //         this.ip = resp.data;
-    //         this.handleSuccess();
-    //       }
-    //     })
-    //     .catch(err => {
-    //       console.error(err);
-    //       this.thinking = false;
-    //       this.handleError();
-    //     })
-    // },
 
-    handleSuccess() {
-      this.successDialog = true;
-      this.successTimer = 5;
-      setInterval(() => {
-        this.successTimer -= 1
-      }, 1000)
+
     },
 
-    handleError() {
-      this.errorDialog = true;
-      this.errorTimer = 5;
-      setInterval(() => {
-        this.errorTimer -= 1
-      }, 1000)
-    },
-  },
 
   computed: {
     usersFromStore() {
