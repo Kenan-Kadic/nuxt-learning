@@ -9,7 +9,7 @@
         <p>Id: {{ip.id}}</p>
         <p>Title: {{ip.title}}</p>
         <p class="mb-15">Completed: {{ip.completed}}</p>
-        <h1>Pull Data from Other API Fetch that is in Vuex store</h1>
+
 
         <div v-for="(user, index) in usersFromStore" :key="index">
           <p>{{ user.id }}</p>
