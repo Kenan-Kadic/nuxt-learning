@@ -2,11 +2,11 @@
   <v-container>
     <v-row v-if="isAuth">
       <v-col>
-    <h1 class="py-3">Counter: {{ theCount }}</h1>
-    <h1 class="pb-3">Getter of Counter x 2: {{ countTimesTwo }} </h1>
-    <v-btn @click="inc">Increase by 1</v-btn>
-    <v-btn @click="ten({value: 10})">Increase by 10</v-btn>
-    <v-btn @click="res">Reset value</v-btn>
+        <h1 class="py-3">Getter showing Counter: {{ initialState }}</h1>
+        <h1 class="pb-3">Getter showing Counter x 2: {{ countTimesTwo }} </h1>
+        <v-btn @click="addOne">Increase by 1</v-btn>
+        <v-btn @click="addTen">Increase by 10</v-btn>
+        <v-btn @click="resetValue">Reset value</v-btn>
       </v-col>
     </v-row>
 
@@ -15,8 +15,8 @@
         <v-card color="green" max-width="300">
           <v-card-title>Authorization</v-card-title>
           <v-card-actions class="my-5">
-          <v-btn @click="login" v-if="!isAuth">Login</v-btn>
-          <v-btn @click="logout" v-if="isAuth">Logout</v-btn>
+            <v-btn @click="login" v-if="!isAuth">Login</v-btn>
+            <v-btn @click="logout" v-if="isAuth">Logout</v-btn>
           </v-card-actions>
         </v-card>
       </v-col>
@@ -25,79 +25,64 @@
 </template>
 
 <script>
- import { mapGetters, mapActions } from 'vuex';
 
  export default {
 
-  name: "counter",
+   name: "counter",
 
-  computed: {
-    theCount() {
-      return this.$store.state.counter.count;
-    },
+   computed: {
 
-    // countTimesTwo() {
-    //   return this.$store.getters["counter/counterTimesTwo"]
-    // }
+     // THE GETTERS
 
-    //shortcut for the getter above
+     initialState() {
+       return this.$store.getters["counter/initialState"];
+     },
 
-    ...mapGetters({
-     countTimesTwo : 'counter/counterTimesTwo',
-     isAuth : 'counter/userIsAuthenticated'
-    })
+     countTimesTwo() {
+       return this.$store.getters["counter/counterTimesTwo"];
+     },
 
-  },
+     isAuth() {
+       return this.$store.getters["counter/userIsAuthenticated"];
+     },
+   },
 
-  methods: {
+   methods: {
 
-   // see comments below
+     // MUTATIONS
 
-    ...mapActions({
-      inc: 'counter/incrementByOne',
-      ten: 'counter/increaseByTen',
-      res: 'counter/reset',
+     addOne() {
+       this.$store.commit('counter/incrementByOne')
+     },
 
-      login: 'counter/login',
-      logout: 'counter/logout',
-    }),
+     addTen() {
+       this.$store.commit({
+         type: 'counter/increaseByTen',
+         value: 10
+       });
 
-  }
-}
+     },
+     resetValue() {
+       this.$store.commit("counter/reset")
+     },
+
+     // ACTIONS
+
+     login() {
+       this.$store.dispatch("counter/login")
+     },
+
+     logout() {
+       this.$store.dispatch("counter/logout")
+     },
+
+   }
+ }
+
 
     // you usually don't commit mutations directly : you dispatch an actions which
     // does this for you in the store
 
-    // addOne() {
-    //   this.$store.commit('counter/incrementByOne')
-    // },
-
-    // addOne() {
-    //   this.$store.dispatch('counter/incrementByOne')
-    // },
-
-    //a shortcut for incrementByOneMethod method
-
-        // usually you would not commit a mutation directly
-
-    // addTen(){
-    //  this.$store.commit('counter/increase', { value:10 })
-    // },
-
-    // addTen(){
-    // this.$store.dispatch({
-    //   type: 'counter/increase',
-    //   value: 10
-    // });
-    // },
-
-    // resetValue(){
-    //   this.$store.commit("counter/reset")
-    // }
-
-    // resetValue(){
-    //   this.$store.dispatch('counter/reset');
-    // }
 
 </script>
 

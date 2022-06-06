@@ -53,6 +53,10 @@ export const getters = {
     return state.count * 2;
   },
 
+  initialState(state){
+    return state.count
+  },
+
   // GETTERS CAN DEPEND ON OTHER GETTERS
 
   counterTimesTwo(state, getters){
