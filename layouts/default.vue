@@ -57,6 +57,13 @@ export default {
       items: [
         {
           items: [
+            {title: 'Login', to:'/forms/login' },
+            {title: 'Signup', to: 'forms/signup'}
+          ],
+          title: 'Forms',
+        },
+        {
+          items: [
             {title: 'Emit an event', to:'/emit' },
             {title: 'Emit userdata', to: '/emit/userdata'}
           ],
@@ -86,7 +93,7 @@ export default {
 
       // links: [
       //   {label: 'Home', url:'/'},
-      //   {label: 'Login', url:'/login'},
+      //   {label: 'Login', url:'/forms'},
       //   // {label: 'Dashboard', url: '/dashboard'},
       //   // {label: 'Signup', url: '/signup'},
       //   {label: 'api Fetch', url: '/api'},
