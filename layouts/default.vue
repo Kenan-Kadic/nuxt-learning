@@ -58,7 +58,7 @@ export default {
         {
           items: [
             {title: 'Login', to:'/forms/login' },
-            {title: 'Signup', to: 'forms/signup'}
+            {title: 'Signup', to: '/forms/signup'}
           ],
           title: 'Forms',
         },
