@@ -1,7 +1,17 @@
 <template>
   <v-container>
-    <h2>This button (in child component) makes the existing dialog (currently hidden in parent component) visible</h2>
-    <v-btn color="green" @click='revealDialog'>Make Dialog visible</v-btn>
+    <v-row>
+      <v-col>
+    <h2>This button (in child component) makes the existing dialog (currently hidden in parent component) visible (NUXT on GLOBAL VERSION)</h2>
+    <v-btn color="green" @click='revealDialogNuxt'>Make NUXT Dialog visible</v-btn>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col>
+    <h2>This button (in child component) makes the existing dialog (currently hidden in parent component) visible (VUE EMIT not global)</h2>
+    <v-btn color="green" @click="revealVueDialog">Make Vue Dialog visible</v-btn>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
@@ -10,12 +20,16 @@ export default {
   name: "AccountInfo",
 
   props: {
-    username: String
+    username: String,
+    dialogID: Number,
   },
 
   methods: {
-    revealDialog() {
-    this.$nuxt.$emit('reveal-dialog');
+    revealDialogNuxt() {
+    this.$nuxt.$emit('reveal-nuxt-global-dialog');
+    },
+    revealVueDialog() {
+    this.$emit('reveal-vue-dialog', );
     }
   }
 

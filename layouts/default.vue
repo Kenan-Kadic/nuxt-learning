@@ -58,6 +58,7 @@ export default {
         {
           items: [
             {title: 'Emit an event', to:'/emit' },
+            {title: 'Emit userdata', to: '/emit/userdata'}
           ],
           title: 'Emit',
         },

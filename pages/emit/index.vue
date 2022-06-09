@@ -1,9 +1,14 @@
 <template>
   <v-container>
-    <AccountInfo></AccountInfo>
-    <v-dialog v-model="dialog">
+    <AccountInfo @reveal-vue-dialog="toggleVueDialog"></AccountInfo>
+    <v-dialog v-model="nuxtDialog">
       <v-card min-height="500" color="blue">
-        <v-card-title>Kenan's Dialog is now visible</v-card-title>
+        <v-card-title>Kenan's Nuxt Dialog is now visible</v-card-title>
+      </v-card>
+    </v-dialog>
+    <v-dialog v-model="vueDialog">
+      <v-card min-height="500" color="green">
+        <v-card-title>Kenan's Vue Dialog is now visible</v-card-title>
       </v-card>
     </v-dialog>
   </v-container>
@@ -18,13 +23,21 @@ export default {
 
   data() {
     return {
-      dialog: false
+      nuxtDialog: false,
+      vueDialog: false,
     }
   },
 
+  methods: {
+    toggleVueDialog() {
+      alert('this works')
+      this.vueDialog = true;
+    },
+  },
+
   created() {
-    this.$nuxt.$on('reveal-dialog', () => {
-      this.dialog = true;
+    this.$nuxt.$on('reveal-nuxt-global-dialog', () => {
+      this.nuxtDialog = true;
     })
   },
 
